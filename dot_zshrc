@@ -1,0 +1,17 @@
+source ~/.antidote/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+
+path+=('/home/kevinh/bin')
+path+=('/home/kevinh/.local/bin')
+
+eval "$(starship init zsh)"
+
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+
+. "$HOME/.cargo/env"
+
+alias ls='eza --long --header --git'

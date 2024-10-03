@@ -1,0 +1,11 @@
+brave-browser
+curl
+emacs
+fonts-jetbrains-mono
+git
+gnome-tweaks
+lm-sensors
+vim
+wezterm
+zsh
+tealdeer
