@@ -1,0 +1,53 @@
+call plug#begin()
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'lifepillar/vim-solarized8'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+
+call plug#end()
+
+set number
+set ruler
+set wildmenu
+set showcmd
+set showmatch
+
+" encoding/format
+set encoding=utf-8
+set fileformats=unix,dos,mac
+
+" searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" indent
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set autoindent
+
+filetype plugin indent on
+syntax on
+
+set termguicolors
+set background=light
+colorscheme catppuccin_mocha
+let g:airline_theme = 'catppuccin_mocha'
+
+
+" keybindings
+inoremap jk <Esc>

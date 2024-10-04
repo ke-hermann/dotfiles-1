@@ -3,6 +3,7 @@ antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
 path+=('/home/kevinh/bin')
 path+=('/home/kevinh/.local/bin')
+path+=('/home/kevinh/soft/zig')
 
 eval "$(starship init zsh)"
 
