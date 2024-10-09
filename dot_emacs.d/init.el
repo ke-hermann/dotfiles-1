@@ -149,7 +149,10 @@
   :ensure t
   :config (add-hook 'lua-mode-hook #'lua-mode))
 
+(defvar evil-disabled t)
+
 (use-package evil
+  :disabled evil-disabled
   :ensure t
   :custom
   (evil-undo-system 'undo-redo)
@@ -158,16 +161,19 @@
   :config (evil-mode 1))
 
 (use-package evil-collection
+  :disabled evil-disabled
   :after evil
   :ensure t
   :config
   (evil-collection-init))
 
 (use-package evil-paredit
+  :disabled evil-disabled
   :ensure t
   :init (add-hook 'paredit-mode-hook #'evil-paredit-mode))
 
 (use-package evil-escape
+  :disabled evil-disabled
   :ensure t
   :config
   (setq-default evil-escape-key-sequence "jk")
@@ -184,6 +190,11 @@
 
 
 (use-package zig-mode :ensure t)
+
+(use-package haskell-mode
+  :ensure t
+  :custom
+  (haskell-process-load-or-reload-prompt t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Completion and Navigation ;;
@@ -288,6 +299,8 @@
 (global-set-key (kbd "<f2>") 'menu-bar-mode)
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 (global-set-key [remap list-buffers] 'ibuffer)
+(global-set-key (kbd "M-n") 'scroll-up-command)
+(global-set-key (kbd "M-p") 'scroll-down-command)
 
 (provide 'init)
 ;;; init.el ends here

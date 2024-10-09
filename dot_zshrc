@@ -4,6 +4,7 @@ antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 path+=('/home/kevinh/bin')
 path+=('/home/kevinh/.local/bin')
 path+=('/home/kevinh/soft/zig')
+path+=('/home/kevinh/.ghcup/bin')
 
 eval "$(starship init zsh)"
 
@@ -16,3 +17,5 @@ eval "$(atuin init zsh)"
 . "$HOME/.cargo/env"
 
 alias ls='eza --long --header --git'
+
+[ -f "/home/kevinh/.ghcup/env" ] && . "/home/kevinh/.ghcup/env" # ghcup-env
