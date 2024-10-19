@@ -1,3 +1,4 @@
+# zsh package manager setup
 source ~/.antidote/antidote.zsh
 antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
@@ -6,16 +7,19 @@ path+=('/home/kevinh/.local/bin')
 path+=('/home/kevinh/soft/zig')
 path+=('/home/kevinh/.ghcup/bin')
 
+# nice prompt with good default settings
 eval "$(starship init zsh)"
 
-
+# improved shell history
 . "$HOME/.atuin/bin/env"
-
 eval "$(atuin init zsh)"
 
-
+# rust setup
 . "$HOME/.cargo/env"
 
+# ls replacement
 alias ls='eza --long --header --git'
-
+# haskell setup
 [ -f "/home/kevinh/.ghcup/env" ] && . "/home/kevinh/.ghcup/env" # ghcup-env
+# brew package manager
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

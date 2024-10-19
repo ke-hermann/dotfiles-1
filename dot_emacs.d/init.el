@@ -127,7 +127,9 @@
   (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode))
 
 (use-package cider
-  :ensure t)
+  :ensure t
+  :bind (("C-x c r" . 'cider-repl-clear-buffer))
+  )
 
 (use-package projectile
   :ensure t
@@ -149,10 +151,7 @@
   :ensure t
   :config (add-hook 'lua-mode-hook #'lua-mode))
 
-(defvar evil-disabled t)
-
 (use-package evil
-  :disabled evil-disabled
   :ensure t
   :custom
   (evil-undo-system 'undo-redo)
@@ -161,19 +160,16 @@
   :config (evil-mode 1))
 
 (use-package evil-collection
-  :disabled evil-disabled
   :after evil
   :ensure t
   :config
   (evil-collection-init))
 
 (use-package evil-paredit
-  :disabled evil-disabled
   :ensure t
   :init (add-hook 'paredit-mode-hook #'evil-paredit-mode))
 
 (use-package evil-escape
-  :disabled evil-disabled
   :ensure t
   :config
   (setq-default evil-escape-key-sequence "jk")
