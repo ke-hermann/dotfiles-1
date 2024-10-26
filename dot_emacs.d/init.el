@@ -1,7 +1,6 @@
 ;;;;;;;;;;;;;;;;;;
 ;; ELPACA SETUP ;;
 ;;;;;;;;;;;;;;;;;;
-
 (defvar elpaca-installer-version 0.7)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
@@ -192,6 +191,12 @@
   :custom
   (haskell-process-load-or-reload-prompt t))
 
+(use-package yasnippet-snippets :ensure t)
+
+(use-package yasnippet
+  :ensure t
+  :config (yas-global-mode +1))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Completion and Navigation ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -297,6 +302,8 @@
 (global-set-key [remap list-buffers] 'ibuffer)
 (global-set-key (kbd "M-n") 'scroll-up-command)
 (global-set-key (kbd "M-p") 'scroll-down-command)
+(global-set-key (kbd "C-x t f") 'toggle-frame-fullscreen)
+(global-set-key (kbd "C-x t m") 'toggle-frame-maximized)
 
 (provide 'init)
 ;;; init.el ends here
