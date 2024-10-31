@@ -56,6 +56,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("t", "jk", [[<C-\><C-n>]]) -- normal mode mapping for term emulator
+-- buffer bindings 
+vim.keymap.set('n', '<leader>bc', "<cmd>bd<CR>", { desc = 'close the current buffer' })
+
 
 -- [[ Basic Autocommands ]]
 -- Highlight when yanking (copying) text
@@ -128,6 +131,14 @@ require("lazy").setup({
     {
         'stevearc/conform.nvim',
         opts = {},
+    },
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {},
+        -- Optional dependencies
+        dependencies = { { "echasnovski/mini.icons", opts = {} } },
     }
 })
 
@@ -204,6 +215,9 @@ require("conform").setup({
     lua = { "stylua" },
     python = { "isort", "black" },
     rust = { "rustfmt", lsp_format = "fallback" },
-    javascript = { "prettierd", "prettier", stop_after_first = true },
+    go = {"gofmt"},
   },
 })
+
+-- [[Oil Config]]
+vim.keymap.set('n', '<leader>oo', "<cmd>Oil<CR>", { desc = 'vim-vinegar like file explorer' })
