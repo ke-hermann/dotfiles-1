@@ -41,4 +41,5 @@ abbr -a agi 'sudo apt install -y'
 
 # customized prompt
 oh-my-posh init fish --config ~/.ohmyposh.json | source
-
+# smarter cd
+zoxide init fish | source

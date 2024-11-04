@@ -146,9 +146,7 @@
   (add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
   (add-hook 'projectile-after-switch-project-hook 'auto-virtualenv-set-virtualenv)) ;; If using projectile)
 
-(use-package lua-mode
-  :ensure t
-  :config (add-hook 'lua-mode-hook #'lua-mode))
+(use-package lua-mode)
 
 (use-package evil
   :ensure t
