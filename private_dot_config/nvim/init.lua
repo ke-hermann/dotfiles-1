@@ -75,10 +75,22 @@ require("lazy").setup({
     {
         "nyoom-engineering/oxocarbon.nvim",
         config = function ()
-            vim.opt.background = "dark" -- set this to dark or light
-            vim.cmd("colorscheme oxocarbon")
-
+            --vim.opt.background = "dark" -- set this to dark or light
+            --vim.cmd("colorscheme oxocarbon")
         end
+    },
+    {
+        'maxmx03/solarized.nvim',
+        lazy = false,
+        priority = 1000,
+        ---@type solarized.config
+        opts = {},
+        config = function(_, opts)
+            vim.o.termguicolors = true
+            vim.o.background = 'dark'
+            require('solarized').setup(opts)
+            vim.cmd.colorscheme 'solarized'
+        end,
     },
     {
         -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
