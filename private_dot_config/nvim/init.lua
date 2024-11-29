@@ -75,8 +75,8 @@ require("lazy").setup({
     {
         "nyoom-engineering/oxocarbon.nvim",
         config = function ()
-            --vim.opt.background = "dark" -- set this to dark or light
-            --vim.cmd("colorscheme oxocarbon")
+            vim.opt.background = "dark" -- set this to dark or light
+            vim.cmd("colorscheme oxocarbon")
         end
     },
     {
@@ -85,12 +85,12 @@ require("lazy").setup({
         priority = 1000,
         ---@type solarized.config
         opts = {},
-        config = function(_, opts)
-            vim.o.termguicolors = true
-            vim.o.background = 'dark'
-            require('solarized').setup(opts)
-            vim.cmd.colorscheme 'solarized'
-        end,
+        -- config = function(_, opts)
+        --     vim.o.termguicolors = true
+        --     vim.o.background = 'dark'
+        --     require('solarized').setup(opts)
+        --     vim.cmd.colorscheme 'solarized'
+        -- end,
     },
     {
         -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -191,7 +191,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     -- Replace the language servers listed here 
     -- with the ones you want to install
-    ensure_installed = {'lua_ls', 'ruff', 'clangd', 'gopls'},
+    ensure_installed = {'lua_ls', 'ruff', 'clangd', 'gopls', 'pyright'},
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -216,9 +216,9 @@ cmp.setup({
 
 -- [[ Telescope config ]]
 local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 -- [[ Auto Formatting ]]
